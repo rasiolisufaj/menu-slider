@@ -1,0 +1,64 @@
+
+on the focus state, we don't want button outline !!!!!!!!!!!!!
+
+for the .toggle. set a background black and 0.3 transparent ,, we want to position it absolute,, [check]
+
+for the cta-btn (signup button), set padding and increase the font size
+
+.container,, set a padding around the whole thing
+position it center through margin
+set a max width of 100% and a width of 800px
+
+FORM STYLING (MODAL)
+
+the modal container will cover up the whole page, like an overlay (0.6 transparent)
+we want to display it none for the moment
+position fixed all t b l r,
+
+the modal (box in the middle), set a background of white 
+radius, shadow 0 0 10px rgba 0.3 black,
+position absolute
+top 50% and left 50% ,, 
+we want it to be directly in the middle so we need to transform translate(-50%, -50%)
+we don't want any scrollbar,,,,!
+set a max width and a width of 400px
+
+check how to style the form
+
+
+-------------------------------------
+JAVASCRIPT
+
+query toggle, close, open, modal
+
+we will add an event listener to toggle,, when we click we will toggle the class show-nav at the body
+(go to the css and add body.show-nav class.. and we want to show the nav when we toggle, so,,, transform: translateX(200px)=> width of the nav)
+also add a transition 0.3s for transform at the body css
+
+//Show modal or show the form (modal => id e modal-container) / open => id e sign up
+
+we will add an event listener for open.. so when we click,, we are going to add a class to the modal container,, add class (show-modal)
+
+// Hide modal
+add a event listener to close,,, wwhen we click we are going to remove the class show-modal
+
+{GO TO CSS AND style modal-container.show-modal class,, 
+  display block / because we had it display none before. and it did not show up before we click
+  
+  we want to have a fade in effect so: we will have to go to .modal , and add an animation-name: modalopen;
+  animation-duration --modal-duration,
+  then we have to create a keyframe for the modalopen animation
+
+  so it will go from opacity 0 to opacity 1 during the --modal-duration that we want, (1s)
+  @keyframes modalopen {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  }
+
+  // HIDE MODAL ON OUTSIDE CLICK .. CHECK HOW.!
