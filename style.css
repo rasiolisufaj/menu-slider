@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 :root {
-  --modal-duration: 1s;
+  --form-duration: 1s;
   --primary-color: #30336b;
   --seconday-color: #be2edd;
 }
@@ -13,6 +13,7 @@
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
+  transition: transform 0.3s ease;
 }
 
 nav {
@@ -63,6 +64,10 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+body.show-nav {
+  transform: translateX(200px);
+}
+
 header {
   font-size: 130%;
   background-color: var(--primary-color);
@@ -89,6 +94,7 @@ header p {
   position: absolute;
   top: 15px;
   left: 15px;
+  cursor: pointer;
 }
 
 .cta-btn,
@@ -97,9 +103,99 @@ input[type="submit"] {
   color: #fff;
   border: 0;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .cta-btn {
   font-size: 20px;
   padding: 12px 30px;
+}
+
+.container {
+  padding: 15px;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 800px;
+}
+
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-name: form-open;
+  animation-duration: var(--form-duration);
+}
+
+.modal-header {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.close {
+  background: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-form div {
+  margin: 15px 0;
+}
+
+.modal-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(200, 200, 200);
+  border-radius: 5px;
+}
+
+.modal-form input:focus {
+  outline: 1px solid #30336b;
+}
+
+.modal-container.show-modal {
+  display: block;
+}
+
+@keyframes form-open {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
